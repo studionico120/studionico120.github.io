@@ -1,1 +1,667 @@
+<!DOCTYPE html>
+<html lang="ja">
 
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>プライバシーポリシー | 配当管理</title>
+  <style>
+    *,
+    *::before,
+    *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    :root {
+      --bg: #f4f6f9;
+      --surface: #ffffff;
+      --accent: #1976d2;
+      --accent-lt: #e8f2fd;
+      --accent-dk: #1256a0;
+      --text: #1a1a2e;
+      --text-sub: #4a5568;
+      --text-muted: #718096;
+      --border: #e2e8f0;
+      --green-bg: #f0fdf4;
+      --green-bd: #bbf7d0;
+      --green-tx: #15803d;
+      --amber-bg: #fffbeb;
+      --amber-bd: #fde68a;
+      --amber-tx: #92400e;
+      --radius: 14px;
+      --shadow: 0 2px 12px rgba(0, 0, 0, 0.06);
+    }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Hiragino Kaku Gothic ProN',
+        'Noto Sans JP', 'Yu Gothic', sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.85;
+      font-size: 15px;
+    }
+
+    /* ── ヘッダー ─────────────────────────────── */
+    header {
+      background: linear-gradient(150deg, #0f2044 0%, #1a3a6e 50%, #1565c0 100%);
+      color: #fff;
+      text-align: center;
+      padding: 60px 24px 52px;
+    }
+
+    .app-badge {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 80px;
+      height: 80px;
+      background: rgba(255, 255, 255, 0.12);
+      border: 2px solid rgba(255, 255, 255, 0.25);
+      border-radius: 22px;
+      margin-bottom: 22px;
+      font-size: 40px;
+    }
+
+    header h1 {
+      font-size: 30px;
+      font-weight: 800;
+      letter-spacing: 0.03em;
+      margin-bottom: 6px;
+      color: #fff;
+    }
+
+    .header-sub-title {
+      font-size: 16px;
+      color: rgba(255, 255, 255, 0.75);
+      margin-bottom: 4px;
+      font-weight: 400;
+    }
+
+    .header-en {
+      font-size: 12px;
+      color: rgba(255, 255, 255, 0.45);
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+
+    /* ── メイン ──────────────────────────────── */
+    main {
+      max-width: 780px;
+      margin: 0 auto;
+      padding: 44px 20px 88px;
+    }
+
+    /* ── 更新日バー ───────────────────────────── */
+    .update-bar {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      background: var(--accent-lt);
+      border-left: 4px solid var(--accent);
+      border-radius: 0 10px 10px 0;
+      padding: 13px 18px;
+      margin-bottom: 36px;
+      font-size: 13.5px;
+      color: var(--accent-dk);
+      font-weight: 600;
+    }
+
+    /* ── セクションカード ─────────────────────── */
+    section {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 32px 32px 28px;
+      margin-bottom: 20px;
+      box-shadow: var(--shadow);
+    }
+
+    .section-header {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 20px;
+      padding-bottom: 16px;
+      border-bottom: 2px solid var(--bg);
+    }
+
+    .section-num {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 30px;
+      height: 30px;
+      background: var(--accent);
+      color: #fff;
+      font-size: 13px;
+      font-weight: 800;
+      border-radius: 50%;
+      flex-shrink: 0;
+    }
+
+    section h2 {
+      font-size: 17.5px;
+      font-weight: 700;
+      color: var(--text);
+    }
+
+    /* ── テキスト ─────────────────────────────── */
+    p {
+      color: var(--text-sub);
+      margin-bottom: 14px;
+    }
+
+    p:last-child {
+      margin-bottom: 0;
+    }
+
+    h3 {
+      font-size: 14px;
+      font-weight: 700;
+      color: var(--text);
+      margin: 20px 0 8px;
+      padding-left: 10px;
+      border-left: 3px solid var(--accent);
+    }
+
+    h3:first-of-type {
+      margin-top: 6px;
+    }
+
+    ul,
+    ol {
+      padding-left: 22px;
+      color: var(--text-sub);
+      margin-bottom: 14px;
+    }
+
+    li {
+      margin-bottom: 8px;
+      line-height: 1.75;
+    }
+
+    li:last-child {
+      margin-bottom: 0;
+    }
+
+    strong {
+      color: var(--text);
+      font-weight: 700;
+    }
+
+    /* ── 強調ボックス（安心・安全） ──────────── */
+    .box-safe {
+      display: flex;
+      gap: 12px;
+      background: var(--green-bg);
+      border: 1px solid var(--green-bd);
+      border-radius: 10px;
+      padding: 16px 18px;
+      margin-bottom: 18px;
+    }
+
+    .box-safe-icon {
+      font-size: 22px;
+      flex-shrink: 0;
+      line-height: 1.6;
+    }
+
+    .box-safe p {
+      color: var(--green-tx);
+      margin: 0;
+      font-size: 14px;
+      font-weight: 500;
+      line-height: 1.75;
+    }
+
+    /* ── 情報ボックス（アクセント） ──────────── */
+    .box-info {
+      background: var(--accent-lt);
+      border: 1px solid #bfdbfe;
+      border-radius: 10px;
+      padding: 14px 18px;
+      margin-bottom: 16px;
+    }
+
+    .box-info p {
+      color: #1e40af;
+      margin: 0;
+      font-size: 14px;
+    }
+
+    /* ── 警告ボックス ─────────────────────────── */
+    .box-warn {
+      display: flex;
+      gap: 12px;
+      background: var(--amber-bg);
+      border: 1px solid var(--amber-bd);
+      border-radius: 10px;
+      padding: 14px 18px;
+      margin-top: 14px;
+    }
+
+    .box-warn-icon {
+      font-size: 18px;
+      flex-shrink: 0;
+      line-height: 1.75;
+    }
+
+    .box-warn p {
+      color: var(--amber-tx);
+      margin: 0;
+      font-size: 13.5px;
+    }
+
+    /* ── パートナー情報テーブル ───────────────── */
+    .partner-card {
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      overflow: hidden;
+      margin: 14px 0;
+    }
+
+    .partner-card-head {
+      background: var(--bg);
+      padding: 11px 16px;
+      font-size: 13.5px;
+      font-weight: 700;
+      color: var(--text);
+      border-bottom: 1px solid var(--border);
+    }
+
+    .partner-row {
+      display: flex;
+      padding: 10px 16px;
+      border-bottom: 1px solid var(--border);
+      font-size: 14px;
+      align-items: flex-start;
+      gap: 12px;
+    }
+
+    .partner-row:last-child {
+      border-bottom: none;
+    }
+
+    .partner-label {
+      color: var(--text-muted);
+      min-width: 80px;
+      flex-shrink: 0;
+    }
+
+    .partner-value {
+      color: var(--text-sub);
+      flex: 1;
+    }
+
+    /* ── リンク ───────────────────────────────── */
+    a {
+      color: var(--accent);
+      text-decoration: none;
+      border-bottom: 1px solid rgba(25, 118, 210, 0.3);
+      transition: color 0.15s, border-color 0.15s;
+    }
+
+    a:hover {
+      color: var(--accent-dk);
+      border-color: var(--accent-dk);
+    }
+
+    /* ── お問い合わせカード ────────────────────── */
+    .contact-card {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      background: var(--bg);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 18px 22px;
+      margin: 16px 0 6px;
+    }
+
+    .contact-icon {
+      font-size: 32px;
+      flex-shrink: 0;
+    }
+
+    .contact-label {
+      font-size: 12px;
+      color: var(--text-muted);
+      margin-bottom: 3px;
+    }
+
+    .contact-value a {
+      font-weight: 600;
+      color: var(--text);
+      font-size: 15px;
+      border-bottom: none;
+    }
+
+    .contact-value a:hover {
+      color: var(--accent);
+    }
+
+    .contact-note {
+      font-size: 13px;
+      color: var(--text-muted);
+      margin-top: 10px !important;
+    }
+
+    /* ── フッター ─────────────────────────────── */
+    footer {
+      text-align: center;
+      padding: 28px 20px;
+      color: var(--text-muted);
+      font-size: 12.5px;
+      border-top: 1px solid var(--border);
+      background: var(--surface);
+    }
+
+    footer .footer-app {
+      font-weight: 600;
+      color: var(--text-sub);
+      margin-bottom: 4px;
+    }
+
+    /* ── レスポンシブ ─────────────────────────── */
+    @media (max-width: 600px) {
+      header {
+        padding: 44px 16px 40px;
+      }
+
+      header h1 {
+        font-size: 24px;
+      }
+
+      .app-badge {
+        width: 64px;
+        height: 64px;
+        font-size: 32px;
+      }
+
+      main {
+        padding: 28px 12px 72px;
+      }
+
+      section {
+        padding: 22px 18px 20px;
+      }
+
+      .partner-row {
+        flex-direction: column;
+        gap: 4px;
+      }
+
+      .partner-label {
+        min-width: unset;
+        font-size: 12px;
+      }
+
+      .contact-card {
+        padding: 14px 16px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- ── ヘッダー ──────────────────────────────────────── -->
+  <header>
+    <div class="app-badge">📊</div>
+    <h1>配当管理</h1>
+    <p class="header-sub-title">プライバシーポリシー</p>
+    <p class="header-en">Privacy Policy</p>
+  </header>
+
+  <!-- ── メインコンテンツ ──────────────────────────────── -->
+  <main>
+
+    <div class="update-bar">
+      📅 最終更新日：2026年2月23日
+    </div>
+
+    <!-- 1. はじめに -->
+    <section>
+      <div class="section-header">
+        <span class="section-num">1</span>
+        <h2>はじめに</h2>
+      </div>
+      <p>
+        「配当管理」（以下、「本アプリ」）は、Studionico120（以下、「開発者」）が
+        個人として開発・提供するスマートフォン向けアプリケーションです。
+      </p>
+      <p>
+        本プライバシーポリシー（以下、「本ポリシー」）は、お客様が本アプリをご利用いただく際に
+        開発者がどのような情報を扱うか、およびその目的と取り扱い方針についてご説明するものです。
+      </p>
+      <p>
+        本アプリをご利用いただくことで、本ポリシーの内容に同意したものとみなします。
+        ご不明な点がある場合は、<a href="#contact">お問い合わせ先</a>までご連絡ください。
+      </p>
+    </section>
+
+    <!-- 2. 収集する情報 -->
+    <section>
+      <div class="section-header">
+        <span class="section-num">2</span>
+        <h2>収集する情報</h2>
+      </div>
+
+      <div class="box-safe">
+        <span class="box-safe-icon">🔒</span>
+        <p>
+          本アプリは証券会社との連携を行いません。ユーザーが入力した銘柄・配当情報は
+          すべてお客様の端末内にのみ保存され、開発者が外部サーバーで受信・収集することは
+          一切ありません。
+        </p>
+      </div>
+
+      <h3>本アプリが直接収集する情報</h3>
+      <ul>
+        <li>本アプリ自体は、氏名・メールアドレス・住所などの<strong>個人を特定できる情報を一切収集しません</strong>。</li>
+        <li>
+          ユーザーが入力する銘柄コード、保有株数、取得価格、配当金情報などは、
+          すべてお客様の端末内のローカルストレージ（AsyncStorage）にのみ記録されます。
+        </li>
+      </ul>
+
+      <h3>広告サービスが収集する情報（Google AdMob）</h3>
+      <p>
+        本アプリは Google LLC が提供する広告配信サービス「Google AdMob」を使用しています。
+        AdMob は広告の配信・最適化のため、以下の情報を収集する場合があります。
+      </p>
+      <ul>
+        <li>デバイス識別子（広告ID / IDFA / GAID）</li>
+        <li>IPアドレス</li>
+        <li>おおよその位置情報</li>
+        <li>アプリの使用状況・操作ログ</li>
+        <li>デバイスの種類・OSバージョン</li>
+      </ul>
+      <div class="box-info">
+        <p>
+          📱 iOS 14 以降では、広告トラッキングの許可を求めるダイアログが表示されます。
+          「許可しない」を選択した場合でも本アプリはご利用いただけます
+          （パーソナライズされていない広告が表示されます）。
+        </p>
+      </div>
+    </section>
+
+    <!-- 3. 情報の利用目的 -->
+    <section>
+      <div class="section-header">
+        <span class="section-num">3</span>
+        <h2>情報の利用目的</h2>
+      </div>
+      <p>収集した情報は、以下の目的のためにのみ使用します。</p>
+      <ul>
+        <li>
+          <strong>アプリ機能の提供：</strong>
+          配当管理・ポートフォリオ表示・月別グラフなどの機能を正常に動作させるため
+        </li>
+        <li>
+          <strong>広告の表示と最適化：</strong>
+          Google AdMob を通じた広告コンテンツの配信および改善のため
+        </li>
+      </ul>
+      <p>上記以外の目的に情報を利用することはありません。</p>
+    </section>
+
+    <!-- 4. 第三者への提供 -->
+    <section>
+      <div class="section-header">
+        <span class="section-num">4</span>
+        <h2>第三者への情報提供</h2>
+      </div>
+      <p>
+        開発者がお客様の情報を第三者に販売・貸与することはありません。
+        ただし、以下の広告配信パートナーとの間でデータが共有される場合があります。
+      </p>
+
+      <div class="partner-card">
+        <div class="partner-card-head">Google AdMob（広告配信パートナー）</div>
+        <div class="partner-row">
+          <span class="partner-label">提供者</span>
+          <span class="partner-value">Google LLC</span>
+        </div>
+        <div class="partner-row">
+          <span class="partner-label">目的</span>
+          <span class="partner-value">広告コンテンツの配信および最適化</span>
+        </div>
+        <div class="partner-row">
+          <span class="partner-label">プライバシー<br>ポリシー</span>
+          <span class="partner-value">
+            <a href="https://policies.google.com/privacy" target="_blank" rel="noopener noreferrer">
+              https://policies.google.com/privacy
+            </a>
+          </span>
+        </div>
+        <div class="partner-row">
+          <span class="partner-label">広告設定</span>
+          <span class="partner-value">
+            <a href="https://adssettings.google.com/" target="_blank" rel="noopener noreferrer">
+              Google 広告の設定
+            </a>
+            からオプトアウト可能
+          </span>
+        </div>
+      </div>
+
+      <p>
+        なお、法令に基づく開示要求があった場合など、法的義務を履行するために
+        必要な範囲で情報を提供することがあります。
+      </p>
+    </section>
+
+    <!-- 5. データの保存と削除 -->
+    <section>
+      <div class="section-header">
+        <span class="section-num">5</span>
+        <h2>データの保存と削除</h2>
+      </div>
+
+      <h3>保存場所</h3>
+      <p>
+        ユーザーが入力したすべてのデータ（銘柄情報・保有株数・取得価格等）は、
+        お客様の端末内のみに保存されます。開発者のサーバーや外部クラウドへ
+        送信・保存されることはありません。
+      </p>
+
+      <h3>データの削除方法</h3>
+      <ul>
+        <li>
+          <strong>アプリの削除：</strong>
+          端末からアプリをアンインストールすることで、すべてのデータが自動的に削除されます。
+        </li>
+        <li>
+          <strong>設定画面からの手動削除：</strong>
+          アプリ内の「設定」画面から、保存されたすべてのデータを削除できます。
+          個別銘柄の削除も、銘柄詳細画面から行えます。
+        </li>
+      </ul>
+
+      <div class="box-warn">
+        <span class="box-warn-icon">⚠️</span>
+        <p>削除したデータは復元できません。重要なデータは事前に設定画面の CSV エクスポート機能でバックアップされることをお勧めします。</p>
+      </div>
+    </section>
+
+    <!-- 6. お子様のプライバシー -->
+    <section>
+      <div class="section-header">
+        <span class="section-num">6</span>
+        <h2>お子様のプライバシー</h2>
+      </div>
+      <p>
+        本アプリは株式投資・配当管理を目的としたサービスであり、
+        <strong>13歳未満のお子様を対象としたサービスではありません。</strong>
+      </p>
+      <p>
+        開発者は13歳未満の方から意図的に個人情報を収集することはありません。
+        13歳未満のお子様が本アプリを使用していることが判明した場合、
+        速やかに関連するデータを削除するための措置を講じます。
+      </p>
+      <p>
+        保護者の方で、お子様が本アプリを使用していることを確認した場合は、
+        <a href="#contact">お問い合わせ先</a>までご連絡ください。
+      </p>
+    </section>
+
+    <!-- 7. ポリシーの変更 -->
+    <section>
+      <div class="section-header">
+        <span class="section-num">7</span>
+        <h2>プライバシーポリシーの変更</h2>
+      </div>
+      <p>
+        本ポリシーは、法令の改正・サービスの変更等に伴い、予告なく改定する場合があります。
+      </p>
+      <p>
+        重要な変更が生じた場合は、<strong>アプリ内通知またはアプリのアップデートリリースノート</strong>
+        にてお知らせします。変更後も引き続き本アプリをご利用いただいた場合、
+        改定後のポリシーに同意したものとみなします。
+      </p>
+      <p>
+        本ページ上部の「最終更新日」を随時ご確認ください。
+      </p>
+    </section>
+
+    <!-- 8. お問い合わせ -->
+    <section id="contact">
+      <div class="section-header">
+        <span class="section-num">8</span>
+        <h2>お問い合わせ</h2>
+      </div>
+      <p>
+        本ポリシーに関するご質問・ご意見、またはデータの削除依頼などは
+        以下のメールアドレスまでお問い合わせください。
+      </p>
+      <div class="contact-card">
+        <div class="contact-icon">✉️</div>
+        <div>
+          <div class="contact-label">メールアドレス</div>
+          <div class="contact-value">
+            <a href="mailto:studionico120@gmail.com">studionico120@gmail.com</a>
+          </div>
+        </div>
+      </div>
+      <p class="contact-note">
+        ※ 個人開発のため、返信までにお時間をいただく場合があります。あらかじめご了承ください。
+      </p>
+    </section>
+
+  </main>
+
+  <!-- ── フッター ───────────────────────────────────────── -->
+  <footer>
+    <p class="footer-app">配当管理</p>
+    <p>© 2026 studionico120. All rights reserved.</p>
+    <p style="margin-top:6px;font-size:11.5px;">
+      <a href="#" style="color:inherit;border:none;">プライバシーポリシー</a>
+    </p>
+  </footer>
+
+</body>
+
+</html>
